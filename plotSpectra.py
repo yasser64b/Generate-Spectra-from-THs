@@ -1,5 +1,5 @@
 """
-This programe take the analysis results from TH2spectra 
+This programe take the analysis results from Th2spectra 
 file soterd in a folder togeter with DBE and MCE spectras.
 """
 
@@ -17,7 +17,7 @@ C = ["DeepPink", "Cyan", "blue", "Black"]  # color to plots
 
 
 #  inputs
-saveToDirectory = input("Input the directory where the spectra excel file is stored:")
+saveToDirectory = input("Directory spectra file is stored:")
 spectraType = input("Spectra type (1.DBE/MCE, 2.OBE/SSE):")
 
 if spectraType == "1":
