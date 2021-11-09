@@ -1,6 +1,6 @@
 """
-This program take the analysis results from Th2spectra 
-file sorted in a folder together with DBE and MCE spectra.
+This programe take the analysis results from Th2spectra 
+file soterd in a folder togeter with DBE and MCE spectras.
 """
 
 import os
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 #  Figure limits & properties
 xlim = [0, 6]
-ylim = [0, 3]
+ylim = [0, 2.5]
 grid_lwidth = 0.15
 C = ["DeepPink", "Cyan", "blue", "Black"]  # color to plots
 
@@ -21,7 +21,7 @@ saveToDirectory = input("Directory spectra file is stored:")
 spectraType = input("Spectra type (1.DBE/MCE, 2.OBE/SSE):")
 
 if spectraType == "1":
-    scale = {"DBE": 0.53, "MCE": 0.8}
+    scale = {"DBE": 0.5, "MCE": 0.7}
 else:
     scale = {"OBE": 0.5, "SSE": 0.7}
 
@@ -66,7 +66,7 @@ for i in range(0, thx_thy_srss, 3):
 
         plt.title(
             "Acceleration Response Spectra: "
-            + columns[i][:-2]
+            + columns[i][2:-2]
             + ", "
             + sp
             + " , \u03B6=0.05 ",
@@ -74,7 +74,7 @@ for i in range(0, thx_thy_srss, 3):
         )
 
         plt.grid(linewidth=grid_lwidth)
-        plt.legend([columns[i], columns[i + 1], "SRSS", sp + " Spectrum"])
+        plt.legend([columns[i][2:], columns[i + 1][2:], "SRSS", sp + " Spectrum"])
         plt.xlim(xlim)
         plt.ylim(ylim)
         # save images
@@ -88,7 +88,7 @@ for sp in list(scale.keys()):
     plt.figure(figsize=(10, 5))
     plt.plot(
         time,
-        scaleSpectra * df["Average of SRSSes"],
+        scaleSpectra * df[columns[-1]],
         C[2],
         Spectrum[sp][:, 0],
         Spectrum[sp][:, 1],
