@@ -1,6 +1,6 @@
 
 """
-This program take gound motion Time histories (THs) in a directory and
+This program take ground motion Time histories (THs) in a directory and
 save them to excel files
 """
 

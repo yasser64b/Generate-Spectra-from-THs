@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 
 
 #  Figure limits & properties
-xlim = [0, 6]
-ylim = [0, 3]
+xlim = [0, 7]
+ylim = [0, 6]
 grid_lwidth = 0.15
 C = ["DeepPink", "Cyan", "blue", "Black"]  # color to plots
 
@@ -21,7 +21,7 @@ saveToDirectory = input("Directory spectra file is stored:")
 spectraType = input("Spectra type (1.DBE/MCE, 2.OBE/SSE):")
 
 if spectraType == "1":
-    scale = {"DBE": 0.53, "MCE": 0.8}
+    scale = {"DBE": 0.5, "MCE": 0.75}
 else:
     scale = {"OBE": 0.5, "SSE": 0.7}
 
@@ -66,7 +66,7 @@ for i in range(0, thx_thy_srss, 3):
 
         plt.title(
             "Acceleration Response Spectra: "
-            + columns[i][:-2]
+            + columns[i][7:-5]
             + ", "
             + sp
             + " , \u03B6=0.05 ",
@@ -74,11 +74,11 @@ for i in range(0, thx_thy_srss, 3):
         )
 
         plt.grid(linewidth=grid_lwidth)
-        plt.legend([columns[i], columns[i + 1], "SRSS", sp + " Spectrum"])
+        plt.legend([columns[i][:-3], columns[i + 1][:-3], "SRSS", sp + " Spectrum"])
         plt.xlim(xlim)
         plt.ylim(ylim)
         # save images
-        plt.savefig(sp + "_" + columns[i][2:-2] + ".png", dpi=300, bbox_inches="tight")
+        plt.savefig(sp + "_" + columns[i][8:-3] + ".png", dpi=300, bbox_inches="tight")
 
 
 # Plot the Mean spectrum:
